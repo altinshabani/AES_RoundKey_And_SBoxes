@@ -67,8 +67,6 @@ namespace AES_All
             data = new byte[] { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 
             data = aes.Encrypt(data, key, 28);
-            //data = aes.Encrypt(data, key, 28);
-            //Console.WriteLine(AES.ToHex(data));
             Console.WriteLine(AES.ToHex(data));
             data = aes.Decrypt(data, key, 28);
             Console.WriteLine(AES.ToHex(data));
