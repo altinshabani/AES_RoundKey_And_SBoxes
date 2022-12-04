@@ -45,7 +45,7 @@ namespace AES_All
 
             Console.WriteLine("AES-192:");
             key = new byte[] { 0x45, 0x32, 0x58, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-            data = new byte[] { 0x67, 0x56, 0xc5, 0x89, 0x00, 0x00, 0x6f, 0x8c, 0x42, 0x00, 0x2c, 0x00, 0x7c, 0x89, 0x00, 0x78 };
+            data = new byte[] { 0x67, 0x56, 0xc5, 0x89, 0xab, 0xef, 0x6f, 0x8c, 0x42, 0x5d, 0x2c, 0x4a, 0x7c, 0x89, 0xcd, 0x78 };
 
             data = aes.Encrypt192(data, key);
             Console.WriteLine(AES.ToHex(data));
@@ -67,6 +67,8 @@ namespace AES_All
             data = new byte[] { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 
             data = aes.Encrypt(data, key, 28);
+            //data = aes.Encrypt(data, key, 28);
+            //Console.WriteLine(AES.ToHex(data));
             Console.WriteLine(AES.ToHex(data));
             data = aes.Decrypt(data, key, 28);
             Console.WriteLine(AES.ToHex(data));
@@ -79,7 +81,7 @@ namespace AES_All
             var aes = new TextAES();
 
             Console.WriteLine("Testing with first key:");
-            text = "HELLOXWORLDXTHISXISXAXTESTXOFXMYXTEXTXAESXCIPHER";
+            text = "HELLOWORLDTEXTXXTESTWITHFIRSTKEY";
             key = "AAAAAAAAAAAAAAAA";
             Console.WriteLine(text);
             ciphertext = aes.EncryptECB(text, key);
